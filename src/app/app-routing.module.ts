@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ChartPageComponent } from './chart-page/chart-page.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'', component: ChartPageComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
