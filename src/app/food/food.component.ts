@@ -15,6 +15,9 @@ export class FoodComponent {
   ngAfterViewInit(){
     this.zone.runOutsideAngular(() => {
       let chart = am4core.create("foodChart", am4charts.XYChart);
+      let title = chart.titles.create();
+      title.text = "Foods";
+      
       chart.data = [
         {"food": "grapes", "nutrition": 8, "price": 3},
         {"food": "pizza", "nutrition": 2, "price": 13},
@@ -29,16 +32,17 @@ export class FoodComponent {
       categoryAxis.renderer.minGridDistance = 3;
 
 
-      categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
-        if (target.dataItem && target.dataItem.index & 2 == 2) {
-          return dy + 25;
-        }
-        return dy;
-      });
+      // categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
+      //   if (target.dataItem && target.dataItem.index & 2 == 2) {
+      //     return dy + 25;
+      //   }
+      //   return dy;
+      // });
 
       
       let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
       valueAxis.renderer.grid.template.strokeOpacity = 0;
+      valueAxis.title.text = "Nutrition";
 
       let series = chart.series.push(new am4charts.ColumnSeries());
       series.dataFields.valueY = "nutrition";

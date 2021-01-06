@@ -30,6 +30,9 @@ export class CarsComponent {
       pieSeries.dataFields.category = "model";
       pieSeries.dataFields.value = "horsepower";
 
+      pieSeries.labels.template.fontSize = 13;
+      pieSeries.labels.template.fontFamily = "Helvetica";
+
       chart.innerRadius = am4core.percent(40);
 
       pieSeries.hiddenState.properties.endAngle = -90;
